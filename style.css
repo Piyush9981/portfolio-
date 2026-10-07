@@ -8,25 +8,20 @@
   --ivory: #F5F2EB;
   --warm-100: #EDE8DC;
   --warm-200: #D4CBBA;
-  --warm-300: #E2DBD0;
   --stone: #9C9287;
   --muted: #6B6257;
   --dark: #2C2620;
   --ink: #1A1612;
   --accent: #8B7355;
   --accent-light: #A89073;
-  --accent-soft: rgba(139, 115, 85, 0.12);
   --gold: #C4A96B;
   --rust: #A0614A;
   --white-1: hsl(0, 0%, 100%);
   --onyx: hsl(240, 1%, 17%);
-  
-  --card-bg: rgba(255, 255, 255, 0.45);
-  --card-border: 1px solid rgba(139, 115, 85, 0.35);
-  --card-shadow: 0 10px 30px -10px rgba(44, 38, 32, 0.06);
-  --radius-lg: 20px;
+
+  --radius-lg: 18px;
   --radius-md: 12px;
-  --radius-sm: 8px;
+  --radius-sm: 6px;
   --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -50,17 +45,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 24px;
+  padding: 40px 30px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /* Master Layout Container */
 .portfolio-container {
   display: flex;
-  width: 100%;
-  max-width: 1200px;
-  gap: 32px;
+  width: 94vw;
+  max-width: 1400px;
+  gap: 36px;
   align-items: stretch;
-  min-height: 680px;
+  min-height: 82vh;
 }
 
 a {
@@ -70,81 +69,86 @@ a {
 }
 
 /* ==========================================================================
-   SIDEBAR COMPONENT
+   SIDEBAR COMPONENT (Reference structure + Current theme)
    ========================================================================== */
 .sidebar {
-  width: 320px;
+  width: 280px;
   flex-shrink: 0;
   display: flex;
 }
 
 .sidebar-div {
   width: 100%;
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  border: var(--card-border);
+  border: 1px solid var(--accent);
   border-radius: var(--radius-lg);
-  box-shadow: var(--card-shadow);
-  padding: 36px 28px;
+  padding: 36px 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   transition: var(--transition);
 }
 
 .sidebar-div:hover {
   border-color: var(--accent-light);
-  box-shadow: 0 14px 36px -8px rgba(44, 38, 32, 0.1);
 }
 
 .image-div {
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   margin: 0 auto 20px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--warm-100), var(--warm-200));
-  border: 2px solid var(--accent);
+  /* border-radius: 50%; */
+  /* background: linear-gradient(135deg, var(--warm-100), var(--warm-200)); */
+  /* border: 1px solid var(--accent); */
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  box-shadow: 0 8px 20px -6px rgba(139, 115, 85, 0.3);
-  transition: var(--transition);
+  /* transition: var(--transition); */
 }
 
-.image-div:hover {
+/* .image-div:hover {
   transform: scale(1.03);
-  border-color: var(--gold);
+} */
+
+.photo-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .image-div .image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center bottom;
   display: block;
+  transform: scale(1.15);
+  transform-origin: bottom center;
 }
 
 .info-content {
   width: 100%;
-  padding-bottom: 20px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid rgba(139, 115, 85, 0.25);
+  padding-bottom: 18px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--accent);
+  text-align: center;
 }
 
 .info-content .name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 2.2rem;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.5px;
+  color: var(--accent);
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -0.25px;
   line-height: 1.1;
   margin-bottom: 4px;
 }
 
 .role-title {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 500;
   color: var(--accent);
   letter-spacing: 0.08em;
@@ -155,25 +159,26 @@ a {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
 }
 
+/* Contact Cards from Reference Structure */
 .sidebar-icon-div {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   text-align: left;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.4);
   padding: 10px 14px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(139, 115, 85, 0.15);
+  border: 1px solid rgba(139, 115, 85, 0.2);
   transition: var(--transition);
 }
 
 .sidebar-icon-div:hover {
-  background: rgba(255, 255, 255, 0.7);
-  border-color: var(--accent-light);
-  transform: translateX(3px);
+  background: rgba(255, 255, 255, 0.75);
+  border-color: var(--accent);
+  transform: translateX(4px);
 }
 
 .mail-icon-div {
@@ -203,9 +208,9 @@ a {
 }
 
 .contact-type {
+  color: var(--gold);
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 2px;
@@ -230,48 +235,33 @@ a.contact-value:hover {
 .body-div {
   flex: 1;
   min-width: 0;
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  border: var(--card-border);
+  border: 1px solid var(--accent);
   border-radius: var(--radius-lg);
-  box-shadow: var(--card-shadow);
-  padding: 40px 50px;
+  padding: 45px 65px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: var(--transition);
 }
 
-.body-div:hover {
-  border-color: var(--accent-light);
-  box-shadow: 0 14px 36px -8px rgba(44, 38, 32, 0.1);
-}
-
-/* Navigation */
+/* Navigation with Reference Underline Animation */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(139, 115, 85, 0.25);
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(139, 115, 85, 0.4);
 }
 
 .logo-link {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.5px;
-}
-
-.logo-link:hover {
-  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: black;
 }
 
 .menu-list {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
   list-style: none;
 }
 
@@ -280,8 +270,10 @@ nav {
   font-weight: 500;
   letter-spacing: 0.12em;
   color: var(--muted);
+  text-transform: uppercase;
   position: relative;
-  padding: 6px 0;
+  padding: 4px 0;
+  transition: color 0.25s ease;
 }
 
 .menu-links::after {
@@ -312,104 +304,93 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 48px 0;
+  padding: 40px 0;
 }
 
 .hero-text {
   width: 100%;
-  max-width: 650px;
 }
 
 .hero-tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
-  background: rgba(196, 169, 107, 0.12);
-  padding: 4px 12px;
-  border-radius: 20px;
   margin-bottom: 20px;
-  border: 1px solid rgba(196, 169, 107, 0.3);
+  font-weight: 500;
 }
 
 .hero-name {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-size: clamp(3.2rem, 5.5vw, 5rem);
   font-weight: 300;
   line-height: 1.05;
   color: var(--ink);
-  margin-bottom: 22px;
+  margin-bottom: 26px;
 }
 
 .hero-name em {
   font-style: italic;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--accent);
 }
 
 .hero-bio {
-  font-size: clamp(0.9rem, 1.4vw, 1rem);
-  line-height: 1.8;
+  font-size: 14px;
+  line-height: 1.9;
   color: var(--muted);
-  margin-bottom: 34px;
+  max-width: 720px;
+  margin-bottom: 36px;
 }
 
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .hero-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: 12px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink);
-  background: transparent;
-  border: 1px solid var(--accent);
-  padding: 12px 22px;
-  border-radius: var(--radius-sm);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--accent);
+  padding-bottom: 4px;
   transition: var(--transition);
 }
 
 .hero-cta:hover {
-  background: var(--ink);
-  color: var(--ivory);
+  color: var(--accent);
   border-color: var(--ink);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px -4px rgba(44, 38, 32, 0.2);
 }
 
 #contact-cta {
-  background: var(--accent);
-  color: var(--ivory);
-  border-color: var(--accent);
+  border: 0.5px solid var(--accent);
+  padding: 5px 12px;
 }
 
 #contact-cta:hover {
-  background: var(--ink);
-  border-color: var(--ink);
+  background-color: var(--accent);
   color: var(--ivory);
+  transform: translateY(-2px);
 }
 
 /* Skills Toolkit (About Page) */
 .skills-container {
-  margin: 24px 0 32px;
+  margin: 20px 0 32px;
 }
 
 .skills-heading {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent);
+  letter-spacing: 0.12em;
+  color: var(--gold);
   margin-bottom: 12px;
 }
 
@@ -423,17 +404,15 @@ nav {
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--dark);
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(139, 115, 85, 0.25);
-  padding: 6px 14px;
-  border-radius: 20px;
+  border: 0.5px solid var(--accent);
+  padding: 5px 14px;
+  border-radius: 4px;
   transition: var(--transition);
 }
 
 .skill-tag:hover {
-  background: var(--warm-100);
-  border-color: var(--accent);
-  transform: translateY(-1px);
+  background: var(--accent);
+  color: var(--ivory);
 }
 
 /* Footer */
@@ -442,13 +421,11 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding-top: 24px;
-  border-top: 1px solid rgba(139, 115, 85, 0.25);
-  gap: 20px;
 }
 
 .foot-heading {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--accent);
 }
@@ -456,7 +433,7 @@ footer {
 .social-media-div {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
 }
 
 .social-icon-div {
@@ -469,40 +446,24 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(139, 115, 85, 0.2);
-  transition: var(--transition);
-}
-
-.git-link img {
-  object-fit: contain;
-  transition: var(--transition);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
 }
 
 .git-link:hover {
-  background: var(--ink);
-  border-color: var(--ink);
   transform: translateY(-3px);
-  box-shadow: 0 6px 14px -3px rgba(44, 38, 32, 0.25);
-}
-
-.git-link:hover img {
-  filter: brightness(0) invert(1);
+  opacity: 0.75;
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (Tablets, iPads & Medium Screens)
+   RESPONSIVE DESIGN (Tablets & Medium Screens < 1024px)
    ========================================================================== */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   body {
     padding: 24px 16px;
-    align-items: flex-start;
   }
 
   .portfolio-container {
+    width: 100%;
     flex-direction: column;
     gap: 24px;
     min-height: auto;
@@ -518,17 +479,13 @@ footer {
 
   .info-div {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
   }
 
   .body-div {
-    padding: 32px 28px;
+    padding: 36px 32px;
     min-height: auto;
-  }
-
-  .hero {
-    padding: 36px 0;
   }
 }
 
@@ -552,65 +509,43 @@ footer {
   .image-div {
     width: 120px;
     height: 120px;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
-  .info-content .name {
-    font-size: 1.9rem;
+  .info-content {
+    margin-bottom: 18px;
   }
 
   .info-div {
     grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .sidebar-icon-div {
-    padding: 10px 12px;
+    gap: 12px;
   }
 
   .body-div {
-    padding: 24px 18px;
+    padding: 28px 20px;
     border-radius: var(--radius-md);
   }
 
   nav {
     flex-direction: column;
     gap: 16px;
-    padding-bottom: 18px;
+    padding-bottom: 20px;
     align-items: center;
     text-align: center;
   }
 
   .logo-link {
-    font-size: 1.5rem;
-  }
-
-  .menu-div {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
-  }
-
-  .menu-div::-webkit-scrollbar {
-    display: none;
+    font-size: 1.4rem;
   }
 
   .menu-list {
-    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
-    width: max-content;
-    margin: 0 auto;
-    padding: 4px 8px;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 30px;
-    border: 1px solid rgba(139, 115, 85, 0.2);
   }
 
   .menu-links {
-    font-size: 0.75rem;
-    padding: 4px 8px;
+    font-size: 0.78rem;
   }
 
   .hero {
@@ -618,42 +553,33 @@ footer {
   }
 
   .hero-name {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
+    font-size: 2.6rem;
+    margin-bottom: 18px;
   }
 
   .hero-bio {
     font-size: 0.92rem;
-    line-height: 1.7;
-    margin-bottom: 24px;
+    line-height: 1.75;
+    margin-bottom: 28px;
   }
 
   .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    width: 100%;
-  }
-
-  .hero-cta {
-    justify-content: center;
-    padding: 12px 16px;
-    width: 100%;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   footer {
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
     text-align: center;
-    padding-top: 20px;
   }
 
   .foot-heading {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
 
   .social-media-div {
-    gap: 16px;
+    gap: 20px;
   }
 }
 
@@ -680,11 +606,10 @@ footer {
   }
 
   .menu-list {
-    gap: 10px;
+    gap: 12px;
   }
 
   .menu-links {
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
+    font-size: 0.72rem;
   }
 }
