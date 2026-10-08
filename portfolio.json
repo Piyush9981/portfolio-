@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "title": "Portfolio",
+  "shortDescription": "My personal portfolio on node.js ",
+  "category": "Portfolio",
+  "technologies": [
+    "JavaScript",
+    "node.js",
+    "HTML",
+    "CSS"
+  ],
+  "featured": true,
+  "displayOrder": 1,
+  "liveDemoUrl": "https://yoga-booking-piyush.onrender.com/",
+  "thumbnail": "assets/thumbnail.png",
+  "status": "Ongoing"
+}
